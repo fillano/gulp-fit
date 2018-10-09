@@ -1,11 +1,9 @@
 language: node_js
 node_js:
     - "6.4.0"
-    - "11.0.0"
+    - "7"
+    - "8"
 before_install: 
-    - npm install mocha -g
-    - npm install chai -g
-    - npm install coveralls -g
-    - npm install istanbul -g
-    - npm install nyc -g
+    - mkdir .lcov
 script: npm test
+after_success: npm run coveralls
