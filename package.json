@@ -1,6 +1,6 @@
 {
   "name": "gulp-fit",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A simple wrap for fit template",
   "main": "index.js",
   "scripts": {
