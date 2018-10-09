@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/nyc ./node_modules/.bin/mocha",
-    "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov ./node_modules/.bin/mocha | ./node_modules/.bin/coveralls"
+    "coveralls": "nyc report --reporter=text-lcov mocha | coveralls"
   },
   "repository": {
     "type": "git",
