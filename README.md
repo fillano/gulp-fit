@@ -32,5 +32,6 @@ then the *set_mode_debug* task will create a *test.js* file in the *build* direc
 var mode = 'debug';
 ```
 
-* [fit-template](https://github.com/fillano/fit)
+# fit-template
 
+[https://github.com/fillano/fit](https://github.com/fillano/fit)
