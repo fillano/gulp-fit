@@ -34,4 +34,6 @@ var mode = 'debug';
 
 # fit-template
 
+For more information about fit-template, please check it's github:
+
 [https://github.com/fillano/fit](https://github.com/fillano/fit)
