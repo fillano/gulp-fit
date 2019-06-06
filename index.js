@@ -12,7 +12,7 @@ module.exports = function(data) {
 
         if(file.isBuffer()) {
             try {
-                file.contents = Buffer.from(fit(file.contents.toString())(data));
+                file.contents = Buffer.from(fit(file.contents.toString())(data), enc);
             } catch(e) {
                 this.emit('error', new PluginError(PLUGIN_NAME, e.toString()));
             }
