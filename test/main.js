@@ -33,4 +33,25 @@ describe('gulp-fit tests', () => {
         stream.write(src);
         stream.end();
     });
+    it('pass stream not supported test', done => {
+        let output = new Vinyl({
+            path: 'test/expected/simpleStringReplace.js',
+            cwd: 'test/',
+            base: 'test/expected',
+            contents: fs.readFileSync('test/expected/simpleStringReplace.js')
+        });
+        let src = new Vinyl({
+            path: 'test/fixtures/simpleStringReplace.js',
+            cwd: 'test/',
+            base: 'test/fixtures',
+            contents: fs.createReadStream('test/fixtures/simpleStringReplace.js')
+        });
+        let stream = fit({mode: 'debug'}); 
+        stream.on('error', error => {
+            assert.equal(error.message, 'Streaming not supported.', 'passing stream should raise error.');
+            done();
+        });
+        stream.write(src);
+        stream.end();
+    });
 });
