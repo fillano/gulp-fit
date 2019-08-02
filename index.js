@@ -1,7 +1,6 @@
 const fit = require('fit-template');
 const through = require('through2');
-const gutil = require('gulp-util');
-const PluginError = gutil.PluginError;
+const PluginError = require('plugin-error');
 const PLUGIN_NAME = 'gulp-fit';
 
 module.exports = function(data) {
