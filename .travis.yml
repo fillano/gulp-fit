@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-    - "6.4.0"
     - "7"
     - "8"
+    - "10"
 before_install: 
-    - mkdir .lcov
+    - mkdir .nyc_output
 script: npm test
 after_success: npm run coveralls
