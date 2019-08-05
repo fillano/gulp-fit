@@ -54,4 +54,32 @@ describe('gulp-fit tests', () => {
         stream.write(src);
         stream.end();
     });
+    it('invalid input shall trigger try catch', done => {
+        let output = new Vinyl({
+            path: 'test/expected/simpleStringReplace.js',
+            cwd: 'test/',
+            base: 'test/expected',
+            contents: fs.readFileSync('test/expected/simpleStringReplace.js')
+        });
+        let src = Object.create(Object.prototype, {
+            path: {value: 'test/fixtures/simpleStringReplace.js'},
+            cwd: {value: 'test/'},
+            base: {value: 'test/fixtures'},
+            isNull: {value: () => false},
+            isStream: {value: () => false},
+            isBuffer: {value: () => true},
+            contents: {
+                get: () => {
+                    throw new Error('New Error');
+                }
+            }
+        });
+        let stream = fit({mode: 'debug'});
+        stream.on('error', error => {
+            assert.equal(error.message, 'Error: New Error', 'fail shall reaise New Error error.');
+            done();
+        });
+        stream.write(src);
+        stream.end();
+    });
 });
